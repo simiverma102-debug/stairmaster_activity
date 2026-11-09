@@ -22,7 +22,18 @@
 # 3. 2 steps + 1 step
  
 def climb_stairs(n):
-    pass
+    if n == 1:
+        return 1
+    if n == 2:
+        return 2
+    one_step = 1  #previous no. of ways (-1)
+    two_step = 2  #number before one_step (-2)      
+    for i in range (3,n+1):
+        current = one_step + two_step
+        one_step = two_step
+        two_step = current
+
+    return current  
 
     # at each step, how many choices do we have?
     # given each choice, how many combinations of steps are left?
